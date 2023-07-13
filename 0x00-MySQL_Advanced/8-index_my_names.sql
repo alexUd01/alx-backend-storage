@@ -9,6 +9,6 @@ Context: Index is not the solution for any performance issue, but well
 used, it’s really powerful!
 */
 
--- THE COMMAND
+-- Create index
 CREATE INDEX idx_name_first
 ON names (name(1));
