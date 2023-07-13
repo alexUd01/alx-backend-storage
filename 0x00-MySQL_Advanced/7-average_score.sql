@@ -11,7 +11,7 @@ REQUIREMENTS:
 -- Drop any existing stored procedure with same name
 DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
 
--- TEmporarily change the delimiter
+-- Temporarily change the delimiter
 DELIMITER $$
 
 -- Create procedure
