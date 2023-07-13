@@ -11,8 +11,10 @@ good shape, let MySQL do it for you!
 -- Drop existing trigger with same name
 DROP TRIGGER IF EXISTS decrease_item_qty;
 
--- Create trigger
+-- Temporary change the delimiter from `;` to `$$`
 DELIMITER $$
+
+-- Create trigger
 CREATE TRIGGER decrease_item_qty
 AFTER INSERT ON `orders`
 FOR EACH ROW
