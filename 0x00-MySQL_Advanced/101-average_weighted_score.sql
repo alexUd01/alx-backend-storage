@@ -6,7 +6,7 @@ REQUIREMENTS:
 - Procedure `ComputeAverageWeightedScoreForUsers` is not taking any input.
 
 Tips:
-Calculate-Weighted-Average
+Calculate-Weighted-Average - https://www.wikihow.com/Calculate-Weighted-Average
 */
 
 -- Drop existing procedure
