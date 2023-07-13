@@ -13,7 +13,20 @@ REQUIREMENTS:
 -- Drop pre-existing function if it exists
 DROP FUNCTION IF EXISTS SafeDiv;
 
+-- Temporarily change the delimiter
+DELIMITER $$
+
 -- Create new function
-CREATE FUNCTION SafeDIV ()
+CREATE FUNCTION SafeDiv (a INT, b INT)
+RETURNS FLOAT
 BEGIN
-END
+DECLARE res FLOAT;
+IF (b = 0) THEN
+   RETURN 0;
+ELSE
+   SET res = a / b;
+   RETURN res;
+END IF;
+END$$
+
+DELIMITER ;
