@@ -8,9 +8,10 @@
 Context: Making attribute unique directly in the table schema will enforce
 your business rukes and avoid bugs in your application
 */
+
 -- Create a table `users`
 CREATE TABLE IF NOT EXISTS `users` (
        `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
        `email` VARCHAR(255) NOT NULL UNIQUE,
-       `name` VARCHAR(255) NOT NULL
+       `name` VARCHAR(255)
 );
