@@ -17,11 +17,8 @@ DELIMITER $$
 -- Create procedure
 CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
--- Declare variable to contain average score
-DECLARE average INT;
--- initialize the variable `average` with a value using INTO keyword
+DECLARE average FLOAT;
 SELECT AVG(score) INTO average FROM corrections WHERE corrections.user_id = user_id;
--- Update the score column on the user table
 UPDATE users SET average_score = average WHERE users.id = user_id;
 END$$
 
