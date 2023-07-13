@@ -9,7 +9,7 @@ REQUIREMENTS:
 */
 
 -- Drop any existing stored procedure with same name
-DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
+-- DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
 
 -- Temporarily change the delimiter
 DELIMITER $$
