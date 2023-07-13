@@ -23,10 +23,10 @@ CREATE PROCEDURE AddBonus (user_id INT, project_name VARCHAR(255), score INT)
 BEGIN
 -- Check if project.name exists
 DECLARE proj_id INT;
-SELECT id INTO proj_id from projects WHERE name=project_name;
+SELECT id INTO proj_id FROM projects WHERE name=project_name;
 IF (proj_id = '' || proj_id IS NULL) THEN
    INSERT INTO projects (name) VALUE (project_name);
-   SELECT id INTO proj_id from projects WHERE name=project_name;
+   SELECT id INTO proj_id FROM projects WHERE name=project_name;
 END IF;
 
 -- Add a new row to correction table
