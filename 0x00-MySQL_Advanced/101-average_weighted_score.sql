@@ -9,10 +9,13 @@ Tips:
 Calculate-Weighted-Average
 */
 
+-- Drop existing procedure
 DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUsers;
 
+-- Custom delimiter
 DELIMITER $$
 
+-- Create new procedure
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
 BEGIN
     UPDATE users AS U,
@@ -26,4 +29,5 @@ BEGIN
     WHERE U.id=WA.id;
 END$$
 
+-- Reset delimiter to default
 DELIMITER ;
