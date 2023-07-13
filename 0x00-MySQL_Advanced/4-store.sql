@@ -22,4 +22,6 @@ BEGIN
 UPDATE items SET quantity = `items`.`quantity` - NEW.`number`
 WHERE `items`.`name` = NEW.`item_name`;
 END$$
+
+-- Reset the delimiter from back to `;`
 DELIMITER ;$$
