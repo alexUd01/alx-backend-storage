@@ -26,4 +26,4 @@ def top_students(mongo_collection):
     sorted_list = sorted(all_students,
                          key=lambda student: student['averageScore'],
                          reverse=True)
-    return sorted_list[0:5]
+    return sorted_list
