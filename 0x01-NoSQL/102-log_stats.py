@@ -5,21 +5,19 @@ the most present IPs in the collection `nginx` of the database `logs`
 - The IPs top must be sorted (descending order)
 """
 from pymongo import MongoClient
-from pymongo.collection import Collection
-from typing import List
 
 
-def connect_to_db(host: str = '127.0.0.1', port: int = 27017) -> Collection:
+def connect_to_db(host='127.0.0.1', port=27017):
     """ A function that establishes a connection to a MongoDB database """
-    client: MongoClient = MongoClient('mongodb://{:s}:{:d}'.format(host, port))
+    client = MongoClient('mongodb://{:s}:{:d}'.format(host, port))
     return client.logs.nginx
 
 
-def create_stat(collection: List, num: int = 10) -> dict[str, int]:
+def create_stat(collection, num=10):
     """ A function that computes the number of requests made by each
     ip address to the nginx server
     """
-    result: dict[str, int] = {}
+    result = {}
     for item in collection:
         if item['ip'] in result.keys():
             result[item['ip']] += 1
@@ -31,12 +29,12 @@ def create_stat(collection: List, num: int = 10) -> dict[str, int]:
     return dict(lst_of_tups)
 
 
-def main() -> None:
+def main():
     """
     A function that parses the data from the `nginx` collections
     in the `logs` database
     """
-    collection: Collection = connect_to_db()
+    collection = connect_to_db()
 
     print("{:d} logs".format(collection.count_documents({})))
 
