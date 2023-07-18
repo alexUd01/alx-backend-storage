@@ -6,11 +6,11 @@ from pymongo import MongoClient
 
 def connect_to_db(host='127.0.0.1', port=27017):
     """ A function that establishes a connection to a MongoDB database """
-    client: MongoClient = MongoClient('mongodb://{:s}:{:d}'.format(host, port))
+    client = MongoClient('mongodb://{:s}:{:d}'.format(host, port))
     return client.logs.nginx
 
 
-def main() -> None:
+def main():
     """
     A function that parses the data from the `nginx` collections
     in the `logs` database
