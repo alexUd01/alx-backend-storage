@@ -8,11 +8,8 @@ PROTOTYPE:
 - name (string) will be the school name to update
 - topics (list of strings) will be the list of topics approached in the school
 """
-from pymongo.collection import Collection
-from typing import List
 
 
-def update_topics(mongo_collection: Collection, name: str,
-                  topics: List[str]) -> None:
+def update_topics(mongo_collection, name, topics):
     """ The function """
     mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})
