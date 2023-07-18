@@ -2,11 +2,9 @@
 """ A python module that contains a function that inserts a new document in
 a colleoction
 """
-import pymongo
 
 
-def insert_school(mongo_collection: pymongo.collection.Collection,
-                  **kwargs: dict) -> str:
+def insert_school(mongo_collection, **kwargs: dict):
     """ The function """
     obj = mongo_collection.insert_one(kwargs)
     return obj.inserted_id
