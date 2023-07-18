@@ -9,17 +9,21 @@ PROTOTYPE:
 - The average score must be part of each item returns with
   key = `averageScore`
 """
+from functools import reduce
 
 
 def top_students(mongo_collection):
     """ The function """
     all_students = list(mongo_collection.find())
-    all_students_with_average = map(lambda student:
-                                    reduce(lambda t1, t2:
-                                           t1['score'] + t2['score'],
-                                           student.topics) / len(student.topics),
-                                    all_students)
-    sorted_list = sorted(all_students_with_average,
-                         key=lambda item: item.averageScore,
+
+    # compute and append average
+    for student in all_students:
+        scores = []
+        for topic in student['topics']:
+            scores.append(topic['score'])
+        student['averageScore'] = sum(scores) / len(scores)
+
+    sorted_list = sorted(all_students,
+                         key=lambda student: student['averageScore'],
                          reverse=True)
-    return sorted_list[0:5]
+    return sorted_list[0:50]
