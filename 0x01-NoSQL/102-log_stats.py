@@ -40,15 +40,15 @@ def main():
 
     # Methods:
     print("Methods:")
-    print("    method GET: {:d}".format(
+    print("\tmethod GET: {:d}".format(
         collection.count_documents({"method": "GET"})))
-    print("    method POST: {:d}".format(
+    print("\tmethod POST: {:d}".format(
         collection.count_documents({"method": "POST"})))
-    print("    method PUT: {:d}".format(
+    print("\tmethod PUT: {:d}".format(
         collection.count_documents({"method": "PUT"})))
-    print("    method PATCH: {:d}".format(
+    print("\tmethod PATCH: {:d}".format(
         collection.count_documents({"method": "PATCH"})))
-    print("    method DELETE: {:d}".format(
+    print("\tmethod DELETE: {:d}".format(
         collection.count_documents({"method": "DELETE"})))
     print("{:d} status check".format(
         collection.count_documents({"path": "/status"})))
@@ -57,7 +57,7 @@ def main():
     print("IPs:")
     ip_stats = create_stat(list(collection.find()))
     for ip, no_of_requests in ip_stats.items():
-        print("{:s}: {:d}".format(ip, no_of_requests))
+        print("\t{:s}: {:d}".format(ip, no_of_requests))
 
 
 if __name__ == "__main__":
