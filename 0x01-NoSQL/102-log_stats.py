@@ -19,7 +19,7 @@ def create_stat(collection: List, num: int = 10) -> dict[str, int]:
     """ A function that computes the number of requests made by each
     ip address to the nginx server
     """
-    result = {}
+    result: dict[str, int] = {}
     for item in collection:
         if item['ip'] in result.keys():
             result[item['ip']] += 1
