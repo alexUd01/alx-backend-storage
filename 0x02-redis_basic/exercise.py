@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
-
+'''
+    Writing strings to Redis.
+'''
 from typing import Callable, Optional, Union
 from uuid import uuid4
 import redis
 from functools import wraps
-
-'''
-    Writing strings to Redis.
-'''
 
 
 def count_calls(method: Callable) -> Callable:
     '''
         Counts the number of times a method is called.
     '''
-
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         '''
